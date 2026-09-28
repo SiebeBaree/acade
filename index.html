@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Acade. DJ and music.">
+  <title>Acade</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 43 19'%3E%3Cpath fill='red' d='M0 0h6.44v18H0zM9 1h6.44v18H9zM18 0h6.44v18H18zM27 1h6.44v18H27zM36 0h6.44v18H36z'/%3E%3C/svg%3E">
+  <style>
+    * { box-sizing: border-box; }
+    html { background: #000; color-scheme: dark; }
+    body { margin: 0; background: #000; }
+    .stage {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100svh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+    .logo {
+      position: relative;
+      width: min(200px, 65vw);
+      aspect-ratio: 914 / 385;
+      touch-action: pan-y;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .bar {
+      position: absolute;
+      top: 0;
+      left: calc(var(--x) / 914 * 100%);
+      width: calc(130.509 / 914 * 100%);
+      height: calc(365.424 / 385 * 100%);
+      background: #f00;
+      transform-origin: center;
+    }
+    .bar:nth-child(even) { top: calc(19.5757 / 385 * 100%); }
+    .letters {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+    .intro .letters { opacity: 0; }
+    .ready .bar { transition: transform 420ms cubic-bezier(.22, 1, .36, 1); }
+    @media (prefers-reduced-motion: reduce) {
+      .ready .bar { transition: none; }
+      .intro .letters { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" aria-label="Acade">
+    <div class="logo" role="img" aria-label="Acade logo with five red bars">
+      <div class="bar" style="--x: 39.1527" aria-hidden="true"></div>
+      <div class="bar" style="--x: 221.865" aria-hidden="true"></div>
+      <div class="bar" style="--x: 404.577" aria-hidden="true"></div>
+      <div class="bar" style="--x: 587.289" aria-hidden="true"></div>
+      <div class="bar" style="--x: 770.001" aria-hidden="true"></div>
+      <svg class="letters" viewBox="0 0 914 385" fill="none" aria-hidden="true">
+<path d="M165.347 239.339C164.745 241.941 164.214 244.214 163.641 246.661C162.85 246.661 162.202 246.662 161.553 246.661C121.646 246.647 81.7382 246.74 41.8322 246.512C35.1522 246.473 28.3462 245.625 21.8306 244.136C4.32545 240.137 -2.61233 228.921 0.873709 211.305C5.47814 188.037 20.6636 174.594 45.6504 173.073C62.2438 172.063 78.9194 172.342 95.5595 172.18C107.97 172.059 120.383 172.156 132.926 172.156C133.713 168.799 134.461 165.609 135.304 162.01C98.7598 162.01 62.4022 162.01 25.5398 162.01C27.6904 151.536 29.7452 141.529 31.9212 130.931C33.2358 130.931 34.6271 130.931 36.0185 130.931C75.133 130.931 114.248 130.924 153.362 130.934C174.454 130.939 185.562 144.937 181.079 165.573C175.767 190.032 170.63 214.529 165.347 239.339ZM116.684 215.742C119.024 215.742 121.365 215.742 123.819 215.742C124.676 211.383 125.457 207.407 126.277 203.231C103.455 203.231 80.9038 203.15 58.3552 203.339C55.7312 203.362 52.7289 204.341 50.6293 205.872C49.0243 207.043 47.927 209.77 47.8734 211.838C47.8468 212.867 50.5361 214.459 52.2359 214.924C54.7338 215.606 57.445 215.701 60.0665 215.709C78.6796 215.768 97.2929 215.741 116.684 215.742Z" fill="white"/>
+<path d="M248.182 167.848C242.895 171.99 239.497 177.152 237.964 183.31C236.088 190.847 234.271 198.44 233.165 206.115C231.362 218.626 236.252 226.062 248.713 227.012C262.472 228.06 276.433 227.632 290.226 226.681C300.407 225.978 307.267 219.382 310.856 209.898C311.897 207.148 313.221 206.466 315.965 206.491C330.356 206.623 344.749 206.553 359.628 206.553C357.376 217.993 352.789 227.792 344.533 235.691C334.564 245.23 322.151 249.682 308.844 251.127C280.391 254.216 251.831 253.306 223.319 251.844C215.295 251.433 207.437 249.382 200.257 245.379C191.647 240.579 186.301 233.153 185.83 223.544C184.844 203.465 188.75 184.059 198.38 166.352C206.914 150.661 221.712 143.164 238.622 139.687C245.445 138.284 252.475 137.331 259.428 137.221C279.119 136.908 298.821 136.947 318.514 137.233C328.158 137.373 337.707 138.754 346.782 142.428C359.7 147.658 366.301 157.168 366.264 171.137C366.254 175.053 365.544 178.968 365.153 182.901C349.019 182.901 333.334 182.901 317.715 182.901C317.554 182.515 317.374 182.288 317.377 182.063C317.542 168.716 313.221 162.978 299.933 162.143C287.452 161.358 274.834 161.8 262.34 162.645C257.606 162.966 253.051 165.923 248.182 167.848Z" fill="white"/>
+<path d="M421.277 165.726C447.825 165.717 473.992 165.717 500.368 165.717C501.193 162.191 501.964 158.894 502.798 155.324C466.241 155.324 429.913 155.324 393.045 155.324C395.187 144.896 397.263 134.795 399.404 124.372C400.73 124.372 401.887 124.372 403.044 124.372C442.836 124.372 482.627 124.349 522.419 124.386C535.893 124.399 546.511 131.653 548.606 143.388C549.614 149.032 549.1 155.238 547.954 160.924C542.648 187.271 536.878 213.524 531.212 240.103C529.881 240.103 528.577 240.103 527.273 240.103C489.597 240.103 451.92 240.248 414.245 239.991C405.845 239.934 397.272 239.285 389.096 237.475C371.735 233.63 364.922 222.353 368.313 204.891C372.809 181.739 387.865 168.653 412.6 166.413C415.362 166.162 418.13 165.96 421.277 165.726ZM437.414 196.525C434.114 196.539 430.763 196.2 427.528 196.665C424.211 197.142 420.74 197.924 417.861 199.52C416.348 200.358 415.23 203.259 415.328 205.156C415.389 206.329 417.931 207.895 419.611 208.342C422.24 209.041 425.082 209.142 427.834 209.15C447.37 209.21 466.906 209.183 486.441 209.183C487.994 209.183 489.547 209.183 491.308 209.183C492.141 204.848 492.916 200.82 493.742 196.525C474.883 196.525 456.544 196.525 437.414 196.525Z" fill="white"/>
+<path d="M662.398 253.18C640.196 253.179 618.392 253.216 596.587 253.164C584.417 253.136 573.326 250.128 564.691 240.894C557.066 232.74 553.906 222.682 553.962 211.897C554.075 189.944 561.107 170.45 576.952 154.773C588.211 143.634 602.021 137.733 617.848 137.506C640.838 137.176 663.834 137.369 686.828 137.339C688.274 137.338 689.72 137.339 691.553 137.339C693.912 126.376 696.255 115.491 698.64 104.406C714.137 104.406 729.518 104.406 745.174 104.406C734.653 153.996 724.16 203.448 713.609 253.18C696.579 253.18 679.687 253.18 662.398 253.18ZM678.523 199.218C680.714 188.968 682.904 178.718 685.221 167.877C667.08 167.877 649.483 166.968 632.026 168.14C615.46 169.251 606.413 178.202 602.434 193.825C598.542 209.105 605.393 219.527 620.983 221.908C623.188 222.245 625.459 222.238 627.7 222.243C639.592 222.274 651.484 222.258 663.377 222.258C666.766 222.258 670.155 222.258 673.691 222.258C675.305 214.548 676.841 207.21 678.523 199.218Z" fill="white"/>
+<path d="M899.925 191.217C890.906 199.392 880.149 202.911 868.66 203.719C856.557 204.571 844.381 204.536 832.235 204.632C815.195 204.767 798.152 204.666 780.715 204.666C779.984 208.27 779.262 211.828 778.468 215.744C815.116 215.744 851.536 215.744 888.276 215.744C886.022 226.256 883.846 236.395 881.646 246.656C877.819 246.656 874.259 246.656 870.7 246.656C833.305 246.655 795.911 246.698 758.516 246.633C744.386 246.608 734.059 238.558 732.181 225.362C731.461 220.302 732.35 214.853 733.338 209.742C735.987 196.035 738.867 182.364 742.055 168.772C747.078 147.357 767.472 130.961 789.473 130.814C817.484 130.626 845.499 130.663 873.509 130.976C880.174 131.051 886.987 131.966 893.445 133.616C908.803 137.541 915.066 146.829 913.262 162.53C912.018 173.368 908.216 183.236 899.925 191.217ZM849.509 161.847C829.708 161.847 809.907 161.847 790.015 161.847C789.078 165.937 788.215 169.707 787.309 173.663C809.982 173.663 832.313 173.778 854.641 173.531C857.748 173.497 861.057 172.08 863.833 170.521C865.118 169.799 865.972 167.145 865.829 165.469C865.739 164.413 863.534 162.928 862.114 162.712C858.222 162.119 854.243 162.095 849.509 161.847Z" fill="white"/>
+      </svg>
+    </div>
+  </main>
+  <script>
+    (() => {
+      const logo = document.querySelector('.logo');
+      const bars = [...logo.querySelectorAll('.bar')];
+      const letters = logo.querySelector('.letters');
+      const stage = document.querySelector('.stage');
+      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+      const animations = new Set();
+      let intro = true;
+
+      // Finished animations release their layers. Nothing runs continuously at rest.
+      async function animate(element, frames, options) {
+        const animation = element.animate(frames, { fill: 'both', ...options });
+        animations.add(animation);
+        try {
+          await animation.finished;
+        } catch {
+          // A resize or motion preference change can finish the intro early.
+        } finally {
+          animations.delete(animation);
+          animation.cancel();
+        }
+      }
+
+      function finishIntro() {
+        intro = false;
+        logo.classList.remove('intro');
+        logo.classList.add('ready');
+        animations.forEach(animation => animation.cancel());
+        bars.forEach(bar => bar.style.removeProperty('transform'));
+      }
+
+      async function enter() {
+        if (reducedMotion.matches || !Element.prototype.animate) {
+          finishIntro();
+          return;
+        }
+        logo.classList.add('intro');
+        const viewport = stage.getBoundingClientRect();
+        const rest = bars.map(bar => bar.getBoundingClientRect());
+        const cx = viewport.left + viewport.width / 2;
+        const cy = viewport.top + viewport.height / 2;
+        // Original Signal: a thin line rises into five peaks, then settles.
+        await Promise.all(bars.map((bar, index) => {
+          const rect = rest[index];
+          const at = (x, y, width, height) => ({
+            transform: `translate(${x - rect.left - rect.width / 2}px, ${y - rect.top - rect.height / 2}px) rotate(0deg) scale(${width / rect.width}, ${height / rect.height})`,
+            opacity: 1
+          });
+          const line = at(viewport.left + viewport.width * (index + .5) / 5, cy, viewport.width / 5 + 1, 2);
+          return animate(bar, [
+            { ...line, opacity: 0 },
+            { ...line, offset: .2 },
+            { ...line, offset: .5 },
+            { ...at(cx + (index - 2) * 40, cy, 28.5, 155 - Math.abs(index - 2) * 26), offset: .76 },
+            { transform: 'translate(0px, 0px) rotate(0deg) scale(1, 1)', opacity: 1 }
+          ], { duration: 1500, delay: index * 38, easing: 'cubic-bezier(.16, 1, .3, 1)' });
+        }));
+        if (!intro) return;
+
+        await animate(letters, [
+          { opacity: 0, transform: 'translateY(7px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ], { duration: 420, easing: 'cubic-bezier(.16, 1, .3, 1)' });
+        if (!intro) return;
+        logo.classList.remove('intro');
+
+        // One short phrase, always up for 1/3/5 and down for 2/4, then silence.
+        await Promise.all(bars.map((bar, index) => {
+          const direction = index % 2 === 0 ? -1 : 1;
+          const amount = rest[index].height * .075 * direction;
+          return animate(bar, [
+            { transform: 'translateY(0)', offset: 0 },
+            { transform: `translateY(${amount}px)`, offset: .24 },
+            { transform: `translateY(${amount * .15}px)`, offset: .52 },
+            { transform: `translateY(${amount * .42}px)`, offset: .72 },
+            { transform: 'translateY(0)', offset: 1 }
+          ], { duration: 1050, delay: index * 65, easing: 'ease-in-out' });
+        }));
+        if (intro) finishIntro();
+      }
+
+      function moveBars(event) {
+        if (intro || reducedMotion.matches) return;
+        const bounds = logo.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width * 914;
+        const position = Math.max(0, Math.min(4, (x - 104.4072) / 182.712));
+        const amplitude = bounds.height * .12;
+        bars.forEach((bar, index) => {
+          // A direct neighbour gets half the movement. Two bars away gets none.
+          const influence = Math.max(0, 1 - Math.abs(position - index) / 2);
+          const direction = index % 2 === 0 ? -1 : 1;
+          bar.style.transform = `translateY(${direction * amplitude * influence}px)`;
+        });
+      }
+
+      function resetBars() {
+        if (intro) return;
+        bars.forEach(bar => bar.style.removeProperty('transform'));
+      }
+
+      logo.addEventListener('pointermove', moveBars);
+      logo.addEventListener('pointerdown', moveBars);
+      logo.addEventListener('pointerleave', resetBars);
+      logo.addEventListener('pointercancel', resetBars);
+      logo.addEventListener('pointerup', event => {
+        if (event.pointerType !== 'mouse') resetBars();
+      });
+      window.addEventListener('blur', resetBars);
+      window.addEventListener('resize', () => intro ? finishIntro() : resetBars());
+      reducedMotion.addEventListener('change', () => {
+        if (intro) finishIntro();
+        else resetBars();
+      });
+      enter().catch(finishIntro);
+    })();
+  </script>
+</body>
+</html>
